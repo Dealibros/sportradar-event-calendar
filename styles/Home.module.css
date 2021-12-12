@@ -1,7 +1,6 @@
-
 .main {
   font-family: Cambria;
-  min-height: 83vh;
+  min-height: 85vh;
   padding: 4rem 0;
   flex: 1;
   display: flex;
@@ -10,6 +9,10 @@
   align-items: center;
 }
 
+.title{
+  margin: -1rem 0 -0.5rem 0;
+  padding: 0;
+}
 /* Header */
 
 .nav {
@@ -38,7 +41,97 @@
 
 .navLi {
   font-size: 1.3rem;
-  padding: 0.8rem 3rem 0 3rem !important;
+  padding: 0.8rem 3rem 0 3rem;
+}
+
+/*AllEvents*/
+.secondTitle {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.topDiv {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.select {
+  margin-left: 2rem;
+  font-size: 1rem;
+  padding: 0.6rem;
+  border: 0.1rem solid lightgrey;
+  border-radius: 0.4rem!important;
+
+}
+.card {
+border: 0.1rem solid #eee;
+box-shadow: 0.4rem 0.4rem 0.5rem rgba(0,0,0,0.05);
+padding: 1.3rem 9rem;
+margin: 1rem auto;
+border-radius: 0.5rem;
+line-height: 0.5rem;
+}
+
+.buttonCreateEvent {
+  font-size: 1rem;
+  margin-left: 1rem;
+  padding: 0.6rem;
+  border: 0.1rem solid lightgrey;
+  border-radius: 0.4rem;
+}
+
+/* EventForm */
+
+.modalBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal {
+  padding: 2.5rem;
+  max-width: 29rem;
+  margin: 11.1rem auto;
+  background: #fff;
+  border-radius: 1rem;
+}
+
+.titleCard {
+  font-size: 2rem;
+  text-align: center;
+  margin: 0;
+}
+
+.deleteButton {
+  padding: 0.4rem;
+  border: 0.1rem solid lightgrey;
+  border-radius: 0.4rem;
+}
+
+.newEventForm label,
+.newEventForm input,
+.newEventForm select {
+  display: block;
+  text-align: left;
+  width:100%;
+  margin: 0.7rem auto;
+  padding: 0.7rem;
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  font-size: 1.2rem;
+}
+
+
+.buttonForm {
+  display:block;
+  padding:0.5rem;
+  margin: 0 auto;
+  border-radius: 0.3rem;
+  background-color: rgb(233, 224, 224);
 }
 
 

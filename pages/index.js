@@ -1,9 +1,28 @@
 import Head from 'next/head'
+import { useEffect, useState } from 'react';
 import styles from '../styles/Home.module.css'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
+import AllEvents from '../components/AllEvents'
+import EventForm from '../components/EventForm'
 
 export default function EventPage() {
+  const [sports, setSports] = useState([]);
+  const [showModal, setShowModal] = useState('')
+
+  useEffect(() => {
+    async function getSports() {
+      const response = await fetch(`/api/allsports`);
+      const allSportsData = await response.json();
+      setSports(allSportsData);
+    }
+    getSports();
+  }, []);
+
+  const handleOpen = () => {
+    setShowModal(true)
+      }
+
   return (
     <div className={styles.container}>
       <Head>
@@ -12,7 +31,9 @@ export default function EventPage() {
       </Head>
       <Header/>
       <main className={styles.main}>
-        <h1>Sportradar Calendar</h1>
+        <h1 className={styles.title}>Sportradar Calendar</h1>
+        <AllEvents sports={sports}showModal={showModal} setShowModal={setShowModal}/>
+        <EventForm sports={sports} showModal={showModal} setShowModal={setShowModal}/>
       </main>
 
       <Footer/>

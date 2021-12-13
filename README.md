@@ -51,18 +51,18 @@ CREATE DATABASE sportradar_event_calendar; <br/>
 CREATE USER sportradar_event_calendar WITH ENCRYPTED PASSWORD ‘sportradar_event_calendar'; <br/>
 GRANT ALL PRIVILEGES ON DATABASE sportradar_event_calendar TO sportradar_event_calendar; <br/>
 
-To start the Database and create the events table: 
+To start the Database and create the events table: <br/>
 psql -U sportradar_event_calendar; 
 
-CREATE TABLE or
-install ley library
+CREATE TABLE or<br/>
+install ley library <br/>
 after creating migrations folder in the project's root.
 
 yarn add ley
 
-To get access to already existing migrations
+To get access to already existing migrations <br/>
 
-$ npm run migrate up or
+$ npm run migrate up or <br/>
 $ yarn migrate up
 
 ## Getting Started

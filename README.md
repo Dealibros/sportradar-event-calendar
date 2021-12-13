@@ -8,7 +8,6 @@ In this calendar you will have the ability to create new Events.
 
 The events can be categorized based on the sports class they belong to.
 
-
 ## Requirements
 
 1. Database Diagram (ERD) that should cover all tables and their relations.
@@ -40,6 +39,32 @@ The application will be built using the following technologies:
 - fontawesome
 
 
+## Set Up
+
+The Database used in this challenge was PostgreSQL.
+
+## Steps to follow for the Database set up
+
+Install postgreSQL.
+Create postgres database:
+CREATE DATABASE sportradar_event_calendar; 
+CREATE USER sportradar_event_calendar WITH ENCRYPTED PASSWORD ‘sportradar_event_calendar'; 
+GRANT ALL PRIVILEGES ON DATABASE sportradar_event_calendar TO sportradar_event_calendar;
+
+To start the Database and create the events table: 
+psql -U sportradar_event_calendar; 
+
+CREATE TABLE or
+install ley library
+after creating migrations folder in the project's root.
+
+yarn add ley
+
+To get access to already existing migrations
+
+$ npm run migrate up or
+$ yarn migrate up
+
 ## Getting Started
 First, run the development server:
 
@@ -51,10 +76,5 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
 

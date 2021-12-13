@@ -55,8 +55,8 @@ To start the Database and create the events table: <br/>
 psql -U sportradar_event_calendar; 
 
 CREATE TABLE or<br/>
-install ley library <br/>
-after creating migrations folder in the project's root.
+install ley library 
+after creating a migrations folder in the project's root.
 
 yarn add ley
 

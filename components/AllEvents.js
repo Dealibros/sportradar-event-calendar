@@ -8,6 +8,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 function EventList({ sports, showModal, setShowModal  }) {
   const [events, setEvents] = useState([]);
   const [filter, setFilter] = useState('');
+  console.log('sportfilter', filter);
+  console.log('events', events)
 
   useEffect(() => {
     if (filter) {
@@ -68,9 +70,10 @@ function EventList({ sports, showModal, setShowModal  }) {
         name="sport"
         id="sport-filter"
         onChange={(e) => setFilter(e.currentTarget.value)}
+
       >
 
-        <option value="">Select Sport</option>
+        <option value="">All Sports</option>
         {sports.map((sport) => (
           <option key={`choose-sport-${sport.id}`} value={sport.sport}>
             {sport.sport}
@@ -91,7 +94,7 @@ function EventList({ sports, showModal, setShowModal  }) {
                 'eee. dd.MM.yyyy, HH:mm')}`}</h3>
               <button className={styles.deleteButton} onClick={() => handleDelete(event) }>
               <FontAwesomeIcon
-                size="m"
+                size="sm"
                 icon={faTrashAlt}
                 aria-hidden="true"
                 title="Delete item"

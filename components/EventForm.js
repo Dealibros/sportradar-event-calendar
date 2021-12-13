@@ -8,6 +8,7 @@ export default function EventForm({ sports, showModal, setShowModal }) {
   const [teamOne, setTeamOne] = useState('');
   const [teamTwo, setTeamTwo] = useState('');
 
+
   async function insertSport() {
     const addSport = await fetch('/api/events/', {
         method: 'POST',

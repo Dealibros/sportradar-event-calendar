@@ -45,11 +45,11 @@ The Database used in this challenge was PostgreSQL.
 
 ## Steps to follow for the Database set up
 
-Install postgreSQL.
-Create postgres database:
-CREATE DATABASE sportradar_event_calendar; 
-CREATE USER sportradar_event_calendar WITH ENCRYPTED PASSWORD ‘sportradar_event_calendar'; 
-GRANT ALL PRIVILEGES ON DATABASE sportradar_event_calendar TO sportradar_event_calendar;
+Install postgreSQL. <br/>
+Create postgres database: <br/>
+CREATE DATABASE sportradar_event_calendar; <br/>
+CREATE USER sportradar_event_calendar WITH ENCRYPTED PASSWORD ‘sportradar_event_calendar'; <br/>
+GRANT ALL PRIVILEGES ON DATABASE sportradar_event_calendar TO sportradar_event_calendar; <br/>
 
 To start the Database and create the events table: 
 psql -U sportradar_event_calendar; 

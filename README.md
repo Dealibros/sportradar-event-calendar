@@ -25,6 +25,8 @@ The events can be categorized based on the sports class they belong to.
 
 3. A HTML frontend to display the data in a user-friendly way. 
 
+![sport-calendar](https://user-images.githubusercontent.com/77852951/146259716-35d54367-61b9-4a03-9d67-a150edf57c77.jpg)
+
 ## Technologies
 The application will be built using the following technologies:
 

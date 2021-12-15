@@ -1,16 +1,14 @@
-import styles from '../styles/Home.module.css'
-import { useState, useEffect } from 'react';
-import { format } from 'date-fns';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { format } from 'date-fns';
+import { useEffect, useState } from 'react';
+import styles from '../styles/Home.module.css';
 
-
-function EventList({ sports, showModal, setShowModal  }) {
+function EventList({ sports, showModal, setShowModal }) {
   const [events, setEvents] = useState([]);
   const [filter, setFilter] = useState('');
-  console.log('sportfilter', filter);
-  console.log('events', events)
 
+  // To show the events from only the selected sport
   useEffect(() => {
     if (filter) {
       async function filterEvents() {
@@ -32,21 +30,25 @@ function EventList({ sports, showModal, setShowModal  }) {
             'Content-Type': 'application/json',
           },
         });
-        const allEvents= await response.json();
+        const allEvents = await response.json();
         setEvents(allEvents);
       }
       getEvents();
     }
   }, [filter]);
 
+  // check if the event should be deleted
+
   const handleDelete = async (item) => {
     const answer = window.confirm(
-      `Are you sure you want to delete the event:
+      `Are you sure you want to delete this event:
       ${item.sport} on ${format(
         new Date(item.timedate),
         'eee., dd.MM.yyyy, HH:mm',
-      )}?`
+      )}?`,
     );
+
+    // to Delete selected event
 
     if (answer === true) {
       await fetch(`/api/events/`, {
@@ -66,41 +68,54 @@ function EventList({ sports, showModal, setShowModal  }) {
     <div>
       <h3 className={styles.secondTitle}>All Events</h3>
       <div className={styles.topDiv}>
-      <select className={styles.select}
-        name="sport"
-        id="sport-filter"
-        onChange={(e) => setFilter(e.currentTarget.value)}
-
-      >
-
-        <option value="">All Sports</option>
-        {sports.map((sport) => (
-          <option key={`choose-sport-${sport.id}`} value={sport.sport}>
-            {sport.sport}
-          </option>
-        ))}
-      </select>
-      <br/>
-      <button className={styles.buttonCreateEvent} onClick={()=>{setShowModal(true)}}>Create New Event</button>
+        <select
+          className={styles.select}
+          name="sport"
+          id="sport-filter"
+          onChange={(e) => setFilter(e.currentTarget.value)}
+        >
+          <option value="">All Sports</option>
+          {sports.map((sport) => (
+            <option key={`choose-sport-${sport.id}`} value={sport.sport}>
+              {sport.sport}
+            </option>
+          ))}
+        </select>
+        <br />
+        <button
+          className={styles.buttonCreateEvent}
+          onClick={() => {
+            setShowModal(true);
+          }}
+        >
+          Create New Event
+        </button>
       </div>
       <ol>
         {events.map((event) => (
-          <div className={styles.card}>
-          <ol key={`event-${event.id}`}>
-            <div>
-              <h2>{`${event.sport}`}</h2>
-              <h2>{`${event.teamone} - ${event.teamtwo}`}</h2>
-               <h3>{`${format(new Date(event.timedate),
-                'eee. dd.MM.yyyy, HH:mm')}`}</h3>
-              <button className={styles.deleteButton} onClick={() => handleDelete(event) }>
-              <FontAwesomeIcon
-                size="sm"
-                icon={faTrashAlt}
-                aria-hidden="true"
-                title="Delete item"
-                /> Delete</button>
-            </div>
-          </ol>
+          <div key={`event-${event.id}`} className={styles.card}>
+            <ol>
+              <div>
+                <h2>{`${event.sport}`}</h2>
+                <h2>{`${event.teamone} - ${event.teamtwo}`}</h2>
+                <h3>{`${format(
+                  new Date(event.timedate),
+                  'eee. dd.MM.yyyy, HH:mm',
+                )}`}</h3>
+                <button
+                  className={styles.deleteButton}
+                  onClick={() => handleDelete(event)}
+                >
+                  <FontAwesomeIcon
+                    size="sm"
+                    icon={faTrashAlt}
+                    aria-hidden="true"
+                    title="Delete item"
+                  />{' '}
+                  Delete
+                </button>
+              </div>
+            </ol>
           </div>
         ))}
       </ol>
